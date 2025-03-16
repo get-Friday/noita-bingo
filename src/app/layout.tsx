@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import localFont from 'next/font/local';
 import { Geist, Geist_Mono } from "next/font/google";
 import { Header, Footer } from "@/components";
 import "./globals.css";
@@ -13,6 +14,11 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const noitaBlackLetter = localFont({
+  variable: '--font-noita-black-letter',
+  src: "../../public/fonts/NoitaBlackletter-Regular.ttf",
+})
+
 export const metadata: Metadata = {
   title: "Noita Bingo",
   description: "Noita Bingo",
@@ -25,7 +31,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} ${noitaBlackLetter.variable}`}>
         <Header />
         {children}
         <Footer />
